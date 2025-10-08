@@ -100,3 +100,14 @@ export const logout = async (req, res) => {
         res.status(500).json({ message: `Error logging out: ${error}` });
     }
 }
+
+
+export const updateProfile = async (req, res) => {
+    try {
+        
+        
+    } catch (error) {
+        console.log(`Error updating profile: ${error}`);
+        res.status(500).json({ message: `Error updating profile: ${error}` });
+    }
+}

@@ -4,6 +4,7 @@ import cors from "cors"
 
 import {connectDB} from "./libs/db.js"
 
+//ROUTES
 import authRoutes from "../src/routes/auth.route.js"
 
 
@@ -18,6 +19,7 @@ app.use(cors())
 
 const PORT = process.env.PORT || 5000
 
+//apis
 app.use("/api/auth", authRoutes);
 
 app.listen(PORT, () => {
