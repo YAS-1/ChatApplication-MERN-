@@ -3,6 +3,7 @@ import User from "../models/user.model.js"
 import { generateToken } from "../utils/tokenGenerator.js";
 
 
+// Signup
 export const signup = async (req, res) => {
     try {
         const { fullName, email, password } = req.body;
@@ -52,6 +53,8 @@ export const signup = async (req, res) => {
     }
 }
 
+
+// Login
 export const login = async (req, res) => {
     try {
         
@@ -89,6 +92,7 @@ export const login = async (req, res) => {
 }
 
 
+// Logout
 export const logout = async (req, res) => {
     try {
         res.cookie("jwt", "", { maxAge: 0 });
@@ -102,6 +106,7 @@ export const logout = async (req, res) => {
 }
 
 
+// Update profile
 export const updateProfile = async (req, res) => {
     try {
         
