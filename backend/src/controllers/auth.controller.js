@@ -109,7 +109,8 @@ export const logout = async (req, res) => {
 // Update profile
 export const updateProfile = async (req, res) => {
     try {
-        
+        const {profilePic} = req.body;
+        req.user._id
         
     } catch (error) {
         console.log(`Error updating profile: ${error}`);
