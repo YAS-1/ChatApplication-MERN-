@@ -112,6 +112,7 @@ export const updateProfile = async (req, res) => {
         const {profilePic} = req.body;
         req.user._id
         
+        
     } catch (error) {
         console.log(`Error updating profile: ${error}`);
         res.status(500).json({ message: `Error updating profile: ${error}` });
