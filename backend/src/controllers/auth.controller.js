@@ -3,7 +3,7 @@ import User from "../models/user.model.js"
 import { generateToken } from "../utils/tokenGenerator.js";
 
 
-// Signup
+// Signup controller
 export const signup = async (req, res) => {
     try {
         const { fullName, email, password } = req.body;
@@ -54,7 +54,7 @@ export const signup = async (req, res) => {
 }
 
 
-// Login
+// Login controller
 export const login = async (req, res) => {
     try {
         
@@ -106,7 +106,7 @@ export const logout = async (req, res) => {
 }
 
 
-// Update profile
+// Update profile controller
 export const updateProfile = async (req, res) => {
     try {
         const {profilePic} = req.body;
