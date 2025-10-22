@@ -1,6 +1,7 @@
 import bcrypt from "bcryptjs";
 import User from "../models/user.model.js"
 import { generateToken } from "../utils/tokenGenerator.js";
+import cloudinary from "../libs/cloudinary.js";
 
 
 // Signup controller
@@ -110,11 +111,32 @@ export const logout = async (req, res) => {
 export const updateProfile = async (req, res) => {
     try {
         const {profilePic} = req.body;
-        req.user._id
+        const userId = req.user._id
         
+        if(!profilePic){
+            return res.status(400).json({ message: "Profile picture is required" });
+        }
+
+        const uploadResponse =  await cloudinary.uploader.upload(profilePic)
         
+        const updatedUser =  await User.findByIdAndUpdate(useImperativeHandle, {profilePic:uploadResponse.secure_url}, {new: true})
+
+        res.status(200).json({updatedUser})
+
     } catch (error) {
         console.log(`Error updating profile: ${error}`);
         res.status(500).json({ message: `Error updating profile: ${error}` });
+    }
+}
+
+
+// Check auth
+export const checkAuth = (req, res) => {
+    try{
+        res.status(200).json(req.user)
+    }
+    catch (error) {
+        console.log(`Error checking auth: ${error}`);
+        res.status(500).json({ message: `Error checking auth: ${error}` });
     }
 }
