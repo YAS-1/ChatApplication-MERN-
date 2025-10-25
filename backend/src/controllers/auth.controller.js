@@ -130,7 +130,7 @@ export const updateProfile = async (req, res) => {
 }
 
 
-// Check auth
+// Check auth controller
 export const checkAuth = (req, res) => {
     try{
         res.status(200).json(req.user)
