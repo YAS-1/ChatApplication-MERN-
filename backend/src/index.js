@@ -8,6 +8,8 @@ import {connectDB} from "./libs/db.js"
 
 //ROUTES
 import authRoutes from "../src/routes/auth.route.js"
+import messageRoutes from "../src/routes/message.route.js"
+
 
 
 
@@ -25,6 +27,7 @@ const PORT = process.env.PORT || 5000
 
 //apis
 app.use("/api/auth", authRoutes);
+app.use("/api/message", messageRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
