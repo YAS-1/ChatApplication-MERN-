@@ -14,3 +14,4 @@ export const getUsersForSidebar = async (req, res) => {
         res.status(500).json({ message: `Error getting users for sidebar: ${error}` });
     }
 };
+
