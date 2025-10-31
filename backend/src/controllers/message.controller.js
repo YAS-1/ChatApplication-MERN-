@@ -1,7 +1,7 @@
 import User from "../models/user.model.js";
 
 
-// Get users for sidebar
+// Get users  for sidebar
 export const getUsersForSidebar = async (req, res) => {
     try {
         const loggedInUserId = req.user._id;
