@@ -5,7 +5,7 @@ import { getUsersForSidebar, getMessages } from "../controllers/message.controll
 
 const messageRoutes = express.Router();
 
-messageRoutes.get("/users", protectRoute, getUsersForSidebar)
-messageRoutes.get("/:id", protectRoute, getMessages)
+messageRoutes.get("/users", protectRoute, getUsersForSidebar) // get users for sidebar route
+messageRoutes.get("/:id", protectRoute, getMessages) // get messages route
 
 export default messageRoutes;
