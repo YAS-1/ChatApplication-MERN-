@@ -1,48 +1,48 @@
-// import User from "../models/user.model.js";
-// import Message from "../models/message.model.js";
+import User from "../models/user.model.js";
+import Message from "../models/message.model.js";
 
 
-// // Get users  for sidebar
-// export const getUsersForSidebar = async (req, res) => {
-//     try {
-//         const loggedInUserId = req.user._id;
-//         const filteredUsers = await User.find({ _id: { $ne: loggedInUserId } }).select("-password");
+// Get users  for sidebar
+export const getUsersForSidebar = async (req, res) => {
+    try {
+        const loggedInUserId = req.user._id;
+        const filteredUsers = await User.find({ _id: { $ne: loggedInUserId } }).select("-password");
 
-//         res.status(200).json(filteredUsers);
+        res.status(200).json(filteredUsers);
 
-//     } catch (error) {
-//         console.log(`Error getting users for sidebar: ${error}`);
-//         res.status(500).json({ message: `Error getting users for sidebar: ${error}` });
-//     }
-// };
+    } catch (error) {
+        console.log(`Error getting users for sidebar: ${error}`);
+        res.status(500).json({ message: `Error getting users for sidebar: ${error}` });
+    }
+};
 
 
-// //  controller to get messages
-// export const getMessages = async(req, res) => {
-//     try {
-//         const { id: userToChatId } = req.params
-//         const myId = req.user._id
+//  controller to get messages
+export const getMessages = async(req, res) => {
+    try {
+        const { id: userToChatId } = req.params
+        const myId = req.user._id
 
-//         const messages = await Message.find({
-//             $or:[
-//                 {senderId: myId, receiverId: userToChatId},
-//                 {senderId: userToChatId, receiverId: myId}
-//             ]
-//         })
+        const messages = await Message.find({
+            $or:[
+                {senderId: myId, receiverId: userToChatId},
+                {senderId: userToChatId, receiverId: myId}
+            ]
+        })
 
-//         res.status(200).json(messages)
+        res.status(200).json(messages)
 
-//     } catch (error) {
-//         console.log(`Error getting messages: ${error}`);
-//         res.status(500).json({ message: `Error getting messages: ${error}` });
-//     }
-// }
+    } catch (error) {
+        console.log(`Error getting messages: ${error}`);
+        res.status(500).json({ message: `Error getting messages: ${error}` });
+    }
+}
 
-// export const sendMessage = async (req, res) => {
-//     try {
+export const sendMessage = async (req, res) => {
+    try {
         
-//     } catch (error) {
+    } catch (error) {
         
-//     }
-// }
+    }
+}
 
