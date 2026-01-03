@@ -44,7 +44,25 @@ export const sendMessage = async (req, res) => {
         const { id: receiverId } = req.params;
         const senderId = req.user._id;
 
-        
+        //check if the user is sending an image
+        let imageUrl;
+        if (image) {
+            //upload the image yo cloundinary
+            const uploadResponse = await cloudinary.uploader.upload(image);
+            imageUrl = uploadResponse.secure_url;
+        }
+
+        // create the new message
+        const newMessage = await Message({
+            senderId,
+            receiverId,
+            text,
+            image: imageUrl,
+        });
+
+        await newMessage.save();
+
+        res.status(200).json(newMessage);
 
     } catch (error) {
         
