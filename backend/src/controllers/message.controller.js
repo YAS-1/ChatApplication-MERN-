@@ -38,6 +38,7 @@ export const getMessages = async(req, res) => {
     }
 }
 
+// send message controller
 export const sendMessage = async (req, res) => {
     try {
         const { text, image } = req.body;

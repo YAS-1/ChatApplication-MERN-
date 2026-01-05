@@ -3,6 +3,7 @@ import jwt, { decode } from "jsonwebtoken";
 import User from "../models/user.model.js";
 
 
+// Middleware to protect routes
 export const protectRoute = async (req, res, next) => {
     try {
         const token = req.cookies.jwt; // assign the token the value of the jwt cookie provived when creating the account

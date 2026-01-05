@@ -15,9 +15,9 @@ import messageRoutes from "../src/routes/message.route.js"
 
 dotenv.config()
 
-const app =  express();
+const app =  express(); // create express app
 
-// 
+// middleware
 app.use(express.json())
 app.use(cookieParser())
 app.use(express.urlencoded({extended: true}))
@@ -29,6 +29,8 @@ const PORT = process.env.PORT || 5000
 app.use("/api/auth", authRoutes);
 app.use("/api/message", messageRoutes);
 
+
+// start server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
     connectDB();

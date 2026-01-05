@@ -4,11 +4,11 @@ import { signup, login, logout, updateProfile, checkAuth } from "../controllers/
 
 const authRoutes = express.Router()
 
-authRoutes.post("/signup", signup);
-authRoutes.post("/login", login);
-authRoutes.post("/logout", logout);
-authRoutes.put("/update-profile", protectRoute, updateProfile);
-authRoutes.get("/check", protectRoute, checkAuth);
+authRoutes.post("/signup", signup); // signup route
+authRoutes.post("/login", login); // login route
+authRoutes.post("/logout", logout); // logout route
+authRoutes.put("/update-profile", protectRoute, updateProfile); // update profile route
+authRoutes.get("/check", protectRoute, checkAuth); // check auth route
 
 
 export default authRoutes;
