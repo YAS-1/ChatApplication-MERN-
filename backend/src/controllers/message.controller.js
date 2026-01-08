@@ -48,7 +48,7 @@ export const sendMessage = async (req, res) => {
         //check if the user is sending an image
         let imageUrl;
         if (image) {
-            //upload the image yo cloundinary
+            //upload the image to cloundinary
             const uploadResponse = await cloudinary.uploader.upload(image);
             imageUrl = uploadResponse.secure_url;
         }
@@ -63,10 +63,11 @@ export const sendMessage = async (req, res) => {
 
         await newMessage.save();
 
-        res.status(200).json(newMessage);
+        res.status(201).json(newMessage);
 
     } catch (error) {
-        
+        console.log(`Error sending message: ${error}`);
+        res.status(500).json({ message: `Error sending message: ${error}` });
     }
 }
 
