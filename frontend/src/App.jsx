@@ -1,5 +1,6 @@
-import Navbar from "./components/Navbar";
+
 import { Routes, Route} from "react-router-dom";
+import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
@@ -10,7 +11,6 @@ import SettingsPage from "./pages/SettingsPage";
 const App = () => {
   return (
     <div>
-
       <Navbar />
 
       <Routes>
