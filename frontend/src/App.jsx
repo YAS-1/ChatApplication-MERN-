@@ -30,10 +30,9 @@ const App = () => {
 
   return (
     <div>
-      // Navbar component rendering
+
       <Navbar />
 
-      // Routes for different pages
       <Routes>
         <Route path="/" element={ !authUser ?<HomePage /> : <Navigate to="/login"/>} />
         <Route path="/login" element={ authUser ? <LoginPage /> : <Navigate to="/"/>} />
